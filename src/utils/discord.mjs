@@ -67,7 +67,8 @@ botClient.on(Events.MessageCreate, async message => {
     //|| message.content.startsWith('📊 Trade Status Update')
     //|| message.content.startsWith('🧠 AI Trading Analysis')
     //|| message.content.startsWith('🐦 New Tweet Posted')
-    || message.content.includes('Sorry, I encountered an error processing your message') 
+    || message.content.includes('Sorry, I encountered an error processing your message')
+    || message.content.includes('I apologize, but I encountered an error processing your request. Please try again.')
     && config.discord.generalCortexChannel) {
     return;
   }

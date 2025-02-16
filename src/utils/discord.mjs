@@ -61,9 +61,14 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 // Add message event handler
 botClient.on(Events.MessageCreate, async message => {
-  // Ignore own messages and startup messages
-  if (message.author.id === botClient.user.id || 
-      (message.content && message.content.startsWith('🟢 Bot is back online'))) {
+  if (message.author.id === botClient.user.id 
+    || message.content.includes('🟢 Bot is back online')
+    //|| message.content.startsWith('🔄 Learning and Retrying')
+    //|| message.content.startsWith('📊 Trade Status Update')
+    //|| message.content.startsWith('🧠 AI Trading Analysis')
+    //|| message.content.startsWith('🐦 New Tweet Posted')
+    || message.content.includes('Sorry, I encountered an error processing your message') 
+    && config.discord.generalCortexChannel) {
     return;
   }
 
